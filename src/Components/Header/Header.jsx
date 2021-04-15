@@ -1,13 +1,15 @@
 import React, {Component} from "react";
+import {useSelector, useStore} from "react-redux";
+import Paper from '@material-ui/core/Paper';
 
 
-class Header extends Component {
-    render() {
-        return (
+function Header() {
 
-            <div>Header</div>
-        )
-    }
+    return (
+        <Paper elevation={1}>
+            <h1 className="header">Users List</h1>
+        </Paper>
+    )
 }
 
 

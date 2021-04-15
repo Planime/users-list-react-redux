@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import usersApi from '../../apiServices/apiUsers'
 import {INIT_USERS} from "../../redux/constants";
 import {DataGrid} from '@material-ui/data-grid';
-import {Container, Button} from '@material-ui/core'
+import {Button} from '@material-ui/core'
 import DeleteIcon from '@material-ui/icons/Delete';
 
 const columns = [

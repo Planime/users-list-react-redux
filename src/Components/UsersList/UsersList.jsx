@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux'
 import usersApi from '../../apiServices/apiUsers'
-import {INIT_USERS} from "../../redux/constants";
+import {DELETE_USERS, INIT_USERS} from "../../redux/constants";
 import {DataGrid} from '@material-ui/data-grid';
 import {Button} from '@material-ui/core'
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -19,8 +19,10 @@ const columns = [
 
 function UsersList() {
     const [selectedRowsId, setSelectedRowsId] = useState([]);
+    const [selectedRow, setSelectedRow] = useState([]);
     const dispatch = useDispatch();
-    const users = useSelector(({users}) => users)
+    const users = useSelector(({users}) => users);
+
 
 
     useEffect(() => {
@@ -36,21 +38,39 @@ function UsersList() {
     function handleSelectionChange(e) {
         setSelectedRowsId(e.selectionModel);
     }
+    
+    function onClickDeleteBtn() {
+        const arrToDelReq = selectedRowsId.map(id => usersApi.delete(`/${id}`).then(res => res.data))
+        Promise.allSettled(arrToDelReq)
+            .then(res => res.filter(res => res.status === "fulfilled"))
+            .then(res => res.map(el => el.value.id))
+            .then(arrIdToDelete => dispatch({type: DELETE_USERS, arrIdToDelete}))
+    }
+
+    function onRowDoubleClick(e) {
+        console.log(e.row);
+        setSelectedRow(()=> e.row)
+    }
 
     return (
         <>
-            {selectedRowsId.length !== 0 &&
+
             <Button
+                onClick={onClickDeleteBtn}
                 variant="contained"
                 color="secondary"
+                disabled={selectedRowsId.length === 0}
                 startIcon={<DeleteIcon/>}
+
             >
                 Delete
             </Button>
-            }
+
             <DataGrid
                 checkboxSelection
+                editRowsModel
                 rows={users}
+                onRowDoubleClick={onRowDoubleClick}
                 autoHeight={true}
                 columns={columns}
                 pageSize={10}

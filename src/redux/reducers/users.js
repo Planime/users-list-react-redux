@@ -8,8 +8,12 @@ function usersReducer(state=[], {type, ...payload}) {
         case DELETE_USERS:
             return state.filter(({id}) => !payload.arrIdToDelete.includes(id));
         case UPDATE_USER:
-            // return state.filter(({id}) => !payload.arrIdToDelete.includes(id));
-
+            return state.map(user => {
+                if(+user.id === +payload.user.id){
+                    return payload.user;
+                }
+                return user;
+            } );
         default: return state
     }
 }

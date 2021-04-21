@@ -12,7 +12,6 @@ const body = (
 )
 
 function ModalEdit({open, setOpen, selectedRow}) {
-    console.log(open, setOpen)
 
     const handlerClose = () => {
         setOpen(false);

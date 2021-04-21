@@ -24,5 +24,9 @@ export const deleteUsers = (selectedRowsId) => (dispatch) => {
 
 export const updateUser = (id, userData) => async (dispatch) => {
     const response  = await usersApi.put(`/${id}`, userData);
-    dispatch(response.data)
+    console.log(response.data);
+    dispatch({
+        type: UPDATE_USER,
+        user: response.data
+    })
 };

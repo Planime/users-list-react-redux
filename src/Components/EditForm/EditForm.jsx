@@ -1,8 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import {TextField, Button} from '@material-ui/core';
+import {useDispatch} from 'react-redux';
+import {updateUser} from "../../redux/actions/actionsCreator";
 
 function EditForm({selectedRow}) {
 
+    const dispatch = useDispatch();
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
@@ -21,7 +24,7 @@ function EditForm({selectedRow}) {
     } = formData;
 
     useEffect(() => {
-        const newData = selectedRow;
+        const newData = {...selectedRow};
         delete newData.id;
         setFormData(newData);
     }, [selectedRow]);
@@ -39,7 +42,8 @@ function EditForm({selectedRow}) {
 
     const onSubmitForm = (e) => {
         e.preventDefault();
-
+        console.log("I am here on Submit")
+        dispatch(updateUser(selectedRow.id, formData))
     };
 
     return (
@@ -91,11 +95,11 @@ function EditForm({selectedRow}) {
                 value={company}
                 onChange={onChangeInput}
             />
-            <Button
+            <button
                 variant="contained"
                 color="primary"
             >Save
-            </Button>
+            </button>
 
         </form>
     )

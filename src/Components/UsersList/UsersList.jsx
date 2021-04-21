@@ -1,10 +1,9 @@
 import {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux'
-import usersApi from '../../apiServices/apiUsers'
-import {DELETE_USERS, INIT_USERS} from "../../redux/constants";
 import {DataGrid} from '@material-ui/data-grid';
 import {Button} from '@material-ui/core'
 import DeleteIcon from '@material-ui/icons/Delete';
+import {deleteUsers, initUsers} from "../../redux/actions/actionsCreator";
 
 const columns = [
     {field: 'id', headerName: 'ID', width: 70},
@@ -17,22 +16,14 @@ const columns = [
 ];
 
 
-function UsersList() {
+function UsersList({setOpen, setSelectedRow}) {
     const [selectedRowsId, setSelectedRowsId] = useState([]);
-    const [selectedRow, setSelectedRow] = useState([]);
     const dispatch = useDispatch();
     const users = useSelector(({users}) => users);
 
 
-
     useEffect(() => {
-        usersApi.get('/')
-            .then(res => {
-                dispatch({
-                    type: INIT_USERS,
-                    users: res.data
-                })
-            })
+        dispatch(initUsers())
     }, []);
 
     function handleSelectionChange(e) {
@@ -40,21 +31,16 @@ function UsersList() {
     }
     
     function onClickDeleteBtn() {
-        const arrToDelReq = selectedRowsId.map(id => usersApi.delete(`/${id}`).then(res => res.data))
-        Promise.allSettled(arrToDelReq)
-            .then(res => res.filter(res => res.status === "fulfilled"))
-            .then(res => res.map(el => el.value.id))
-            .then(arrIdToDelete => dispatch({type: DELETE_USERS, arrIdToDelete}))
+      dispatch(deleteUsers(selectedRowsId))
     }
 
-    function onRowDoubleClick(e) {
-        console.log(e.row);
-        setSelectedRow(()=> e.row)
+    function onRowClick(e) {
+         setSelectedRow(()=> e.row);
+         setOpen(true)
     }
 
     return (
         <>
-
             <Button
                 onClick={onClickDeleteBtn}
                 variant="contained"
@@ -70,7 +56,7 @@ function UsersList() {
                 checkboxSelection
                 editRowsModel
                 rows={users}
-                onRowDoubleClick={onRowDoubleClick}
+                onRowClick={onRowClick}
                 autoHeight={true}
                 columns={columns}
                 pageSize={10}

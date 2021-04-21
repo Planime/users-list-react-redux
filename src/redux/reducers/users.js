@@ -1,4 +1,4 @@
-import {DELETE_USERS, INIT_USERS} from "../constants";
+import {DELETE_USERS, INIT_USERS, UPDATE_USER} from "../constants";
 
 
 function usersReducer(state=[], {type, ...payload}) {
@@ -6,8 +6,10 @@ function usersReducer(state=[], {type, ...payload}) {
         case INIT_USERS:
             return payload.users;
         case DELETE_USERS:
-            console.log(payload.arrIdToDelete)
-            return state.filter(({id}) => !payload.arrIdToDelete.includes(id))
+            return state.filter(({id}) => !payload.arrIdToDelete.includes(id));
+        case UPDATE_USER:
+            // return state.filter(({id}) => !payload.arrIdToDelete.includes(id));
+
         default: return state
     }
 }

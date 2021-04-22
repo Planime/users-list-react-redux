@@ -3,7 +3,7 @@ import {TextField, Button} from '@material-ui/core';
 import {useDispatch} from 'react-redux';
 import {updateUser} from "../../redux/actions/actionsCreator";
 
-function EditForm({selectedRow}) {
+function EditForm({selectedRow, handlerClose}) {
 
     const dispatch = useDispatch();
     const [formData, setFormData] = useState({
@@ -42,9 +42,14 @@ function EditForm({selectedRow}) {
 
     const onSubmitForm = (e) => {
         e.preventDefault();
-        console.log("I am here on Submit")
         dispatch(updateUser(selectedRow.id, formData))
+        handlerClose()
     };
+
+    const onClickCancel = (e) => {
+        e.preventDefault();
+        handlerClose();
+    }
 
     return (
         <form
@@ -96,8 +101,13 @@ function EditForm({selectedRow}) {
                 onChange={onChangeInput}
             />
             <button
-                variant="contained"
-                color="primary"
+                className="cancelBtn"
+                onClick={onClickCancel}
+            >Cancel
+            </button>
+
+            <button
+                className="saveBtn"
             >Save
             </button>
 

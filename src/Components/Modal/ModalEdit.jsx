@@ -5,10 +5,10 @@ import EditForm from "../EditForm/EditForm";
 
 const body = (
 
-            <div>
+    <div>
 
-            <EditForm/>
-            </div>
+        <EditForm/>
+    </div>
 )
 
 function ModalEdit({open, setOpen, selectedRow}) {
@@ -31,7 +31,10 @@ function ModalEdit({open, setOpen, selectedRow}) {
 
                 <div>
 
-                    <EditForm selectedRow={selectedRow}/>
+                    <EditForm
+                        handlerClose={handlerClose}
+                        selectedRow={selectedRow}
+                    />
                 </div>
             )}
 

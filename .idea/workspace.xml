@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="abc7b87a-938d-4da6-89f6-ff8340fd5d83" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Components/EditForm/EditForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/EditForm/EditForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Components/Modal/ModalEdit.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/Modal/ModalEdit.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,8 +19,8 @@
       <file leaf-file-name="index.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
+            <state relative-caret-position="373">
+              <caret line="43" column="1" lean-forward="true" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -296,18 +294,18 @@
       <option name="presentableId" value="Default" />
       <updated>1618288650813</updated>
       <workItem from="1618288652000" duration="13723000" />
-      <workItem from="1618507839622" duration="21177000" />
+      <workItem from="1618507839622" duration="21452000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34900000" />
+    <option name="totallyTimeSpent" value="35175000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1317" y="23" width="1610" height="967" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26494652" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26494652" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -315,7 +313,7 @@
       <window_info anchor="bottom" id="Run" order="2" weight="0.3173516" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3321839" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3321839" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -568,8 +566,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
+        <state relative-caret-position="373">
+          <caret line="43" column="1" lean-forward="true" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
         </state>
       </provider>
     </entry>

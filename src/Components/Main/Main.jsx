@@ -10,7 +10,6 @@ function Main() {
     const [open, setOpen] = useState(false);
     const [selectedRow, setSelectedRow] = useState([]);
 
-
     return (
         <Container>
             <Header/>

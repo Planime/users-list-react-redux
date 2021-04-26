@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {makeStyles} from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import EditForm from "../EditForm/EditForm";
 
@@ -9,14 +8,13 @@ const body = (
 
         <EditForm/>
     </div>
-)
+);
 
 function ModalEdit({open, setOpen, selectedRow}) {
 
     const handlerClose = () => {
         setOpen(false);
     };
-
 
     return (
 
